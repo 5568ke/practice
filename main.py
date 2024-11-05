@@ -13,6 +13,10 @@ Class User(BaseModel):
 async def root():
         return {"message": "Hello World"}
 
+@app.get("/")
+def getUserList():
+    return user_dict
+
 @app.post("/register")
 def register(user : User):
     user_dict[user.id]=user.name
